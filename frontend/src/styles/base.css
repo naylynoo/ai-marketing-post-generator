@@ -1,0 +1,258 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+:root {
+  --bg: #f5f5f7;
+  --bg-elevated: #ffffff;
+  --bg-soft: #f1f3f5;
+  --text: #111827;
+  --muted: #6b7280;
+  --primary: #2563eb;
+  --primary-soft: rgba(37, 99, 235, 0.1);
+  --border: #e5e7eb;
+  --danger: #ef4444;
+}
+
+body.dark {
+  --bg: #020617;
+  --bg-elevated: #020617;
+  --bg-soft: #0b1120;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #3b82f6;
+  --primary-soft: rgba(59, 130, 246, 0.2);
+  --border: #1f2937;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at top left, var(--primary-soft), transparent 55%), var(--bg);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.4);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background-color: color-mix(in srgb, var(--bg) 80%, transparent);
+}
+
+.app-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.app-logo-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #f97316, #ec4899 40%, #6366f1 75%);
+  box-shadow: 0 0 40px rgba(129, 140, 248, 0.6);
+}
+
+.app-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.app-subtitle {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.app-nav-link {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border: 1px solid transparent;
+}
+
+.app-nav-link.router-link-active {
+  background-color: var(--primary-soft);
+  border-color: rgba(37, 99, 235, 0.5);
+  color: var(--primary);
+}
+
+.app-main {
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  flex: 1;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--bg-elevated);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.5);
+  padding: 1.5rem;
+  box-shadow:
+    0 18px 60px rgba(15, 23, 42, 0.16),
+    0 0 0 1px rgba(148, 163, 184, 0.4);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.card-description {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.field-help {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.field-error {
+  font-size: 0.75rem;
+  color: var(--danger);
+}
+
+.input,
+.textarea,
+.select {
+  border-radius: 0.85rem;
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.75rem;
+  background-color: var(--bg-soft);
+  color: inherit;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-color: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+}
+
+.btn {
+  border-radius: 0.9rem;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #f9fafb;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--muted);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.stack-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .app-main {
+    padding: 1rem;
+  }
+
+  .app-header {
+    padding-inline: 1rem;
+  }
+
+  .results-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
