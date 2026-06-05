@@ -19,7 +19,13 @@ def create_application() -> FastAPI:
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=settings.backend_cors_origins,
+        #allow_origins=settings.backend_cors_origins,
+        #allow all origins for now
+        allow_origins=[
+        "http://localhost:5173",
+        "https://ai-marketing-post-generator.vercel.app",
+    ],
+
         allow_credentials=True,
         allow_methods=["*"],
         allow_headers=["*"],
